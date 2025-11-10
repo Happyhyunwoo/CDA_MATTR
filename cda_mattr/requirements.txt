@@ -1,8 +1,0 @@
-streamlit==1.36.0
-spacy==3.7.2
-# Pre-install the small English model at build time to avoid runtime download
-en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
-numpy==1.26.4
-pandas==2.2.2
-nltk==3.8.1
-more-itertools==10.3.0
