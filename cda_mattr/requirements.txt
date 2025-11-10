@@ -1,6 +1,0 @@
-streamlit
-spacy>=3.7.0
-nltk
-more-itertools
-numpy
-pandas
