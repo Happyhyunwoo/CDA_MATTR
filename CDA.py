@@ -18,15 +18,17 @@ from spacy.lang.en import English
 # Streamlit app configuration
 st.set_page_config(page_title="Constructional Diversity Analyzer", page_icon="📝", layout="wide")
 
-# Load spaCy model
+# Load spaCy model with auto-download
 @st.cache_resource
 def load_spacy_model():
     try:
         return spacy.load("en_core_web_sm")
     except OSError:
-        st.error("⚠️ Spacy model 'en_core_web_sm' not found.")
-        st.info("Please install it by running: `python -m spacy download en_core_web_sm`")
-        st.stop()
+        st.info("📥 Downloading spaCy model 'en_core_web_sm'... This may take a few minutes on first run.")
+        import subprocess
+        import sys
+        subprocess.check_call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
+        return spacy.load("en_core_web_sm")
 
 nlp = load_spacy_model()
 
